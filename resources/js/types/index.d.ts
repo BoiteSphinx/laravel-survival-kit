@@ -37,3 +37,23 @@ export interface User {
 }
 
 export type BreadcrumbItemType = BreadcrumbItem;
+
+export interface Todo {
+    id: number
+    title: string,
+    description: string,
+    owner: User,
+    status: TodoStatus,
+    created_at: string
+}
+
+export type TodoStatus =
+    | 'todo'
+    | 'in_progress'
+    | 'done'
+    | 'archived'
+
+export interface TodoStatusOption {
+    value: TodoStatus,
+    label: string,
+}

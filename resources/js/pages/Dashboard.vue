@@ -2,8 +2,10 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import PlaceholderPattern from '../components/PlaceholderPattern.vue';
+import { Card, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { index } from '@/routes/todos';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -24,7 +26,17 @@ const breadcrumbs: BreadcrumbItem[] = [
                 <div
                     class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
                 >
-                    <PlaceholderPattern />
+                    <Card class="h-full w-full flex flex-col justify-between">
+                        <CardHeader>
+                            <CardTitle>Page Todos</CardTitle>
+                        </CardHeader>
+
+                        <CardFooter class="">
+                            <Link :href="index()">
+                                Afficher les Todos
+                            </Link>
+                        </CardFooter>
+                    </Card>
                 </div>
                 <div
                     class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"

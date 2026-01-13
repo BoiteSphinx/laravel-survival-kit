@@ -14,6 +14,7 @@ export default defineConfig({
         tailwindcss(),
         wayfinder({
             formVariants: true,
+            patterns: ['app/**/*.php', 'routes/**/*.php'],
         }),
         vue({
             template: {
