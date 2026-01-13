@@ -43,7 +43,7 @@ export interface Todo {
     id: number
     title: string,
     description: string| null,
-    owner: User,
+    user: User,
     status: TodoStatus,
     created_at: string
     updated_at: string
