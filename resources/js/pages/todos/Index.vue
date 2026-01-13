@@ -6,23 +6,23 @@
             <h1 class="text-2xl font-bold">Mes Todos</h1>
 
             <!-- Formulaire de création -->
-            <CreateForm :statuses="statuses" class="my-4" />
+            <TodoForm :statuses="statuses" class="my-4" />
 
             <Separator class="my-4" />
 
             <!-- Liste des todos -->
-            <List :todos="todos" />
+            <TodoList :todos="todos" />
         </div>
     </AppLayout>
 </template>
 
 <script setup lang="ts">
-import CreateForm from '@/components/Todos/TodoForm.vue';
-import List from '@/components/Todos/List.vue';
+import TodoForm from '@/components/Todos/TodoForm.vue';
+import TodoList from '@/components/Todos/TodoList.vue';
 import { Separator } from '@/components/ui/separator';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { index } from '@/routes/todos';
-import { BreadcrumbItem, Todo, TodoStatusOption } from '@/types';
+import { BreadcrumbItem, TodoCollection, TodoStatusCollection } from '@/types';
 import { Head } from '@inertiajs/vue3';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -33,7 +33,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ]
 
 defineProps<{
-    todos: Todo[],
-    statuses: TodoStatusOption[]
+    todos: TodoCollection,
+    statuses: TodoStatusCollection
 }>()
 </script>

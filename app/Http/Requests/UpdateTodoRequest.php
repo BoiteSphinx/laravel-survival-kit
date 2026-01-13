@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\TodoStatus;
+use App\Policies\TodoPolicy;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTodoRequest extends FormRequest
 {
@@ -11,7 +14,10 @@ class UpdateTodoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        $todo = $this->route('todo');
+
+        return $todo
+            && $this->user()->can(TodoPolicy::UPDATE, $todo);
     }
 
     /**
@@ -22,7 +28,9 @@ class UpdateTodoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+            'status' => ['required', Rule::enum(TodoStatus::class)],
         ];
     }
 }

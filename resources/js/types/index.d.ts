@@ -1,5 +1,6 @@
 import { InertiaLinkProps } from '@inertiajs/vue3';
 import type { LucideIcon } from 'lucide-vue-next';
+import { ApiResource, ApiResourceCollection } from './api';
 
 export interface Auth {
     user: User;
@@ -41,10 +42,11 @@ export type BreadcrumbItemType = BreadcrumbItem;
 export interface Todo {
     id: number
     title: string,
-    description: string,
+    description: string| null,
     owner: User,
     status: TodoStatus,
     created_at: string
+    updated_at: string
 }
 
 export type TodoStatus =
@@ -53,7 +55,13 @@ export type TodoStatus =
     | 'done'
     | 'archived'
 
+export type TodoResource = ApiResource<Todo>
+
+export type TodoCollection = ApiResourceCollection<Todo>
+
 export interface TodoStatusOption {
     value: TodoStatus,
     label: string,
 }
+
+export type TodoStatusCollection = ApiResourceCollection<TodoStatusOption>

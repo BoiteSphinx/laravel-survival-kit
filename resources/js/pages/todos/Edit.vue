@@ -15,21 +15,20 @@
 
 <script setup lang="ts">
 import TodoForm from '@/components/Todos/TodoForm.vue';
-import CreateTodoForm from '@/components/Todos/TodoForm.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { edit } from '@/routes/todos';
-import { BreadcrumbItem, Todo, TodoStatusOption } from '@/types';
+import { edit, index } from '@/routes/todos';
+import { BreadcrumbItem, Todo, TodoResource, TodoStatusCollection, TodoStatusOption } from '@/types';
 import { Head } from '@inertiajs/vue3';
 
 const props = defineProps<{
-    todo: Todo,
-    statuses: TodoStatusOption[]
+    todo: TodoResource,
+    statuses: TodoStatusCollection
 }>()
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Todos',
-        href: edit(props.todo.id).url,
+        href: index().url,
     }
 ]
 

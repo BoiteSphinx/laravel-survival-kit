@@ -14,14 +14,20 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { BookOpen, Folder, LayoutGrid, ListTodo } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
+import todos from '@/routes/todos';
 
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutGrid,
+    },
+    {
+        title: 'Todos',
+        href: todos.index(),
+        icon: ListTodo,
     },
 ];
 

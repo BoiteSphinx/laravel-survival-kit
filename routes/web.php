@@ -30,8 +30,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('todos', [TodoController::class, 'index'])->name('todos.index');
     Route::post('todos', [TodoController::class, 'store'])->name('todos.store');
     Route::get('todos/{todo:id}/edit', [TodoController::class, 'edit'])->name('todos.edit');
+    Route::put('todos/{todo:id}', [TodoController::class, 'update'])->name('todos.update');
     Route::delete('todos/{todo:id}', [TodoController::class, 'destroy'])->name('todos.delete');
-});
 
+    // Plus simple
+    // Route::resource('todos', TodoController::class);
+});
 
 require __DIR__.'/settings.php';
