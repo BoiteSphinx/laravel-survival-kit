@@ -8,10 +8,12 @@ use App\Http\Requests\StoreTodoRequest;
 use App\Http\Requests\UpdateTodoRequest;
 use App\Http\Resources\TodoResource;
 use App\Http\Resources\TodoStatusResource;
+use App\Mail\TodoCreatedMail;
 use App\Models\User;
 use App\Policies\TodoPolicy;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -35,10 +37,16 @@ class TodoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTodoRequest $request, #[CurrentUser] User $user): RedirectResponse {
-        $user->todos()->create(
+    public function store(StoreTodoRequest $request, #[CurrentUser] User $user): RedirectResponse
+    {
+        $todo = $user->todos()->create(
             $request->validated()
         );
+
+        if (config('survival-kit.send_email')) {
+            Mail::to($user)
+                ->send(new TodoCreatedMail($todo));
+        }
 
         return redirect()->route('todos.index');
     }
