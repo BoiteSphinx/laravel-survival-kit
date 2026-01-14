@@ -6,7 +6,7 @@
     >
         <CollapsibleTrigger as-child>
             <Button variant="outline" class="w-full justify-between">
-                <span>Nouvelle Tâche</span>
+                <span>Créer Nouvelle Tâche</span>
                 <ChevronDown class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" />
             </Button>
         </CollapsibleTrigger>
