@@ -92,7 +92,7 @@ php artisan migrate:fresh --seed
 composer run dev
 ```
 
-L'application est accessible sur http://laravel-survival-kit.test.
+L'application est accessible sur http://127.0.0.1:8000/.
 
 ## Prise en main
 
