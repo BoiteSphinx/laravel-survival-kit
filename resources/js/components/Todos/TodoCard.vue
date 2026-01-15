@@ -1,29 +1,18 @@
 <template>
-    <Link :href="edit(todo)">
-        <Card
-            class="
-                relative
-                mb-4
-                break-inside-avoid
-                cursor-pointer
-                transition
-                hover:shadow-lg
-                group
-                shadow-gray-700
-            "
-        >
-            <!-- Delete Button -->
-            <Button
-                variant="ghost"
-                size="icon"
-                class="
-                    absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition cursor-pointer
-                "
-                @click.stop="destroy(todo)"
-            >
-                <Trash2 class="h-4 w-4" />
-            </Button>
+    <Card class="
+        relative
+        mb-4
+        break-inside-avoid
+        cursor-pointer
+        transition
+        hover:shadow-lg
+        group
+        shadow-gray-700
+    ">
+        <!-- Delete Button -->
+        <TodoDelete :todo="todo" />
 
+        <Link :href="edit(todo)">
             <CardContent class="py-4">
                 <div>
                     <p class="font-medium">
@@ -43,8 +32,8 @@
                     Dernière modification {{ new Date(todo.updated_at).toLocaleDateString() }}
                 </span>
             </CardFooter>
-        </Card>
-    </Link>
+        </Link>
+    </Card>
 </template>
 
 <script setup lang="ts">
@@ -54,7 +43,8 @@ import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Trash2 } from 'lucide-vue-next';
 import { deleteMethod, edit } from '@/routes/todos';
-import { Link } from '@inertiajs/vue3';
+import { Form, Link } from '@inertiajs/vue3';
+import TodoDelete from './TodoDelete.vue';
 
 defineProps<{
     todo: Todo,
@@ -65,12 +55,6 @@ const statusClasses: Record<TodoStatus, string> = {
     in_progress: 'bg-blue-500 text-white',
     done: 'bg-green-500 text-white',
     archived: 'bg-gray-400 text-white',
-}
-
-const destroy = (todo: Todo) => {
-    if (!confirm('Supprimer cette tâche ?')) return
-
-    deleteMethod(todo)
 }
 
 </script>
