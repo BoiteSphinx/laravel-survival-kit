@@ -79,6 +79,12 @@ SEND_EMAIL=true
 Alimenter la base de données et lancer le serveur de développement :
 
 ```bash
+# Création d'une base de données
+# Powershell
+New-Item .\database\database.sqlite -ItemType File -Force
+# Linux
+touch ./database/database.sqlite
+
 # Populer la base de données
 php artisan migrate:fresh --seed
 
