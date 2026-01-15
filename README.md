@@ -142,6 +142,133 @@ Adapter le frontend Vue
 
 > Tips: Utiliser le composant [Tabs](https://www.shadcn-vue.com/docs/components/tabs) de shadcn-vue.
 
+## Environnement & extensions recommandées
+
+Cette section liste quelques outils et extensions pour améliorer l'expérience de développement avec PHP / Laravel et Vue 3.
+
+### Visual Studio Code
+
+[Visual Studio Code](https://code.visualstudio.com/) est un éditeur gratuit, léger et très populaire dans l'écosystème Laravel.
+
+#### Extensions essentielles
+
+- PHP Intelephense
+
+    Autocomplétion, navigation dans le code, détection d'erreurs PHP.
+
+    https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client
+
+    *`bmewburn.vscode-intelephense-client`*
+
+- Laravel
+
+    Extension officielle de Laravel pour Visual Studio Code, propose tout un tas d'autocomplétion et d'utilitaires propres au Framework.
+
+    https://marketplace.visualstudio.com/items?itemName=laravel.vscode-laravel
+
+    *`laravel.vscode-laravel`*
+
+- Tailwind CSS IntelliSense
+
+    Extension officielle de Tailwind pour Visual Studio Code, permet l'autocomplétion des classes Tailwind.
+
+    https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
+
+    *`bradlc.vscode-tailwindcss`*
+
+- Vue (Official)
+
+    Extension officielle de VueJS pour Visual Studio Code, permet le support du langage Vue.
+
+    https://marketplace.visualstudio.com/items?itemName=Vue.volar
+
+    *`Vue.volar`*
+
+#### Extensions essentielles
+
+- Auto Complete Tag
+
+    Permet la fermeture automatique de balises HTML/XML, ainsi que le renommage automatique de la balise de fermeture.
+
+    https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-complete-tag
+
+    *`formulahendry.auto-complete-tag`*
+
+- Git Blame
+
+    Permet de voir qui a effectué la dernière modification d'une ligne de code.
+
+    https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame
+
+    *`waderyan.gitblame`*
+
+#### Paramétrage
+
+Avec ces extensions s'accompagnent une configuration de Visual Studio Code.
+
+Voici un exemple de paramétrage :
+
+```json
+{
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "files.autoGuessEncoding": true,
+    "files.insertFinalNewline": true,
+    "files.eol": "\r\n",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.associations": {
+        "*.blade.php": "blade"
+    },
+    "emmet.includeLanguages": {
+        "blade": "html"
+    },
+    "search.useIgnoreFiles": false,
+    "php.suggest.basic": false,
+    "editor.detectIndentation": false,
+    "[php]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[javascript]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "gitblame.inlineMessageEnabled": true,
+    "gitblame.inlineMessageFormat": "${author.name}, ${time.ago} • ${commit.summary}",
+    "gitblame.extendedHoverInformation": "inline-status",
+    "php.validate.executablePath": "C:\\Users\\heliod\\.config\\herd\\bin\\php84\\php.exe",
+}
+
+```
+
+### PHPStorm
+
+PHPStorm est un IDE très complet pour PHP et Laravel. Il est une alternative payante à Visual Studio Code.
+
+Fonctionnalités notables !
+
+- Support Laravel avancé (routes, Eloquent, Blade)
+- Débogage PHP intégré
+- Refactoring puissants
+- Très bonne intégration avec PHPUnit / Pest
+
+### Extensions navigateur
+
+- Vue.js devtools
+
+    Extension navigateur pour inspecter les composants Vue et debugger les applications VueJS.
+
+    https://devtools.vuejs.org/
+
 ## Pour aller plus loin
 
 Voici quelques pistes pour approfondir :
