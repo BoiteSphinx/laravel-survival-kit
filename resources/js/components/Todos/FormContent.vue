@@ -1,5 +1,5 @@
 <template>
-    <Form v-bind="form" v-slot="{ processing, errors }" class="flex flex-col gap-6">
+    <Form v-bind="form" v-slot="{ processing, errors }" class="flex flex-col gap-6" resetOnSuccess>
         <!-- Titre -->
         <div class="grid gap-2">
             <Label for="title">Titre</Label>
